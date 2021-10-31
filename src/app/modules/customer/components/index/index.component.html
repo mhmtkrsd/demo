@@ -1,0 +1,72 @@
+<div *ngIf="access">
+  <table >
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+       
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customerService.entities">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.lastname}}</td>
+        
+        <td>
+          <a (click)="onEditRecord(item)">
+            <i class='bx bxs-edit action'></i>
+          </a>
+          <a (click)="onDeleteRecord(item.id)" >
+            <i class='bx bxs-trash-alt action' id="deleteBtn" ></i>
+          </a>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<button class="add_btn" (click)="onNewRecordClicked($event)">New Customer</button>
+<app-modal></app-modal>
+</div>
+
+<div style="margin-top: 5%;" *ngIf="access&&superAdminAccess">
+  <div *ngIf="adminService.entities&& adminService.entities.length>0;else adminisnotfound" >
+    <table >
+      <thead>
+        <tr>
+          
+          <th>Username</th>
+          <th>Password</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr *ngFor="let item of adminService.entities">
+             
+            <td>{{item.username}}</td>
+            <td>{{item.password}}</td>
+             
+          </tr>
+        
+       
+      </tbody>
+    </table>
+  </div>
+  <ng-template #adminisnotfound>
+    <p>Admin is not found</p>
+  </ng-template>
+
+<app-modal></app-modal>
+</div>
+
+<div *ngIf="access && !superAdminAccess">
+  <p>Only super admin</p>
+</div>
+
+<div *ngIf="!access">
+  <p>Access is denied</p>
+</div>

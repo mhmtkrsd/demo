@@ -1,0 +1,18 @@
+<div #globalModal class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div *ngIf="modalService.modalOptions" class="modal-header" >
+          <h5 class="modal-title">{{modalService.modalOptions.title}}</h5>
+          <button type="button" class="close" (click)="modalService.close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ng-template *ngIf="true" ModalBodyContainer></ng-template>
+          <ng-template *ngIf="false">
+            <ng-template>Unexpected error occured! Please close this window and open it again!</ng-template>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
