@@ -1,43 +1,43 @@
-<div *ngIf="loginStatus" class="sidebar">
-    <div class="logo-details">
-        <i class='bx bxl-angular icon' ></i>
-        <div class="logo_name">Angular</div>
-        <i class='bx bx-menu' id="btn" (click)="openClose()"></i>
-    </div>
-    <ul class="nav-list">
-        <li>
-            <a href="#">
-                <i class='bx bx-grid-alt'></i>
-                <span class="links_name">Home Page</span>
-            </a>
-            <span class="tooltip">Home Page</span>
-        </li>
-        <li>
-            <a routerLink="customer">
-                <i class='bx bx-user'></i>
-                <span class="links_name">Customer</span>
-            </a>
-            <span class="tooltip">Customer</span>
-        </li>
-       
-        <li class="profile">
-            <div class="profile-details">
-                <img src="profile.jpg" alt="profileImg">
-                <div class="name_job">
-                    <div class="name">M.Kursad Yuca</div>
-                    <div class="job">Full Stack Developer</div>
+<div *ngIf="loginStatus;else unAuthorized">
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-angular icon' ></i>
+            <div class="logo_name">Angular</div>
+            <i class='bx bx-menu' id="btn" (click)="openClose()"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Home Page</span>
+                </a>
+                <span class="tooltip">Home Page</span>
+            </li>
+            <li>
+                <a routerLink="customer">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Customer</span>
+                </a>
+                <span class="tooltip">Customer</span>
+            </li>
+           
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="profile.jpg" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">M.Kursad Yuca</div>
+                        <div class="job">Full Stack Developer</div>
+                    </div>
                 </div>
-            </div>
-            <i class='bx bx-log-out' (click)="onLogoutClicked()" id="log_out"></i>
-        </li>
-    </ul>
+                <i class='bx bx-log-out' (click)="onLogoutClicked()" id="log_out"></i>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <router-outlet></router-outlet>
+    </section>
 </div>
 
-
-<section  *ngIf="loginStatus" class="home-section">
+<ng-template #unAuthorized>
     <router-outlet></router-outlet>
-</section>
-
-<div  *ngIf="!loginStatus">
-    <router-outlet></router-outlet>
-</div>
+</ng-template>

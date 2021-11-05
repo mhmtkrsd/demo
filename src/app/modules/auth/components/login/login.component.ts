@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem('admin', JSON.stringify([{"username":"admin","password":"123"}]));
     localStorage.setItem('superadmin', JSON.stringify([{"username":"superadmin","password":"123"}]));
-    localStorage.setItem('customers', JSON.stringify([{"id":1,"name":"Kursad","lastname":"Mehmet","password":"123"}]));
+    localStorage.setItem('customers', JSON.stringify([{"id":1,"name":"customer","lastname":"Mehmet Kursad Yuca","password":"123"}]));
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/']);
     }

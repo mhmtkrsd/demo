@@ -9,38 +9,28 @@
                     admin:admin Password:123<br>
                     customer:customer Password:123
                 </small>
-                <small style="font-size:small;">
-                   <b> Please refresh the page after login.There is a little bug</b>
-                </small>
             </h2>
         </div>
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="card-form">
             <div class="input">
-                <!-- <input type="text" class="input-field" value="Alexander Parkinson" required /> -->
                 <input type="text" formControlName="username" class="input-field"
                 [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
                 <label class="input-label">Full name</label>
-               
             </div>
-
             <div class="input">
-                <!-- <input type="password" class="input-field" required /> -->
                 <input type="password" formControlName="password" class="input-field"
                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
                 <label class="input-label">Password</label>
-                
-                
             </div>
             <div class="action">
                 <button type="submit" class="action-button">Get started</button>
             </div>
         </form>
-
     </div>
 </div>
